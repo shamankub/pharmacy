@@ -15,8 +15,33 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from drugsapp.views import (DrugModelViewSet, FormOfReleaseModelViewSet,
+                            PatientModelViewSet, PrescriptionDrugModelViewSet,
+                            RecipeModelViewSet)
+from employeeapp.views import (BranchModelViewSet, PositionModelViewSet,
+                               SalaryModelViewSet, StaffModelViewSet,
+                               VacationModelViewSet)
+from rest_framework.routers import DefaultRouter
+from supplyapp.views import (SuppliedDrugModelViewSet, SupplierModelViewSet,
+                             SupplyModelViewSet)
+
+router = DefaultRouter()
+router.register("Staff", StaffModelViewSet)
+router.register("Position", PositionModelViewSet)
+router.register("Branch", BranchModelViewSet)
+router.register("Vacation", VacationModelViewSet)
+router.register("Salary", SalaryModelViewSet)
+router.register("Drug", DrugModelViewSet)
+router.register("FormOfRelease", FormOfReleaseModelViewSet)
+router.register("Patient", PatientModelViewSet)
+router.register("PrescriptionDrug", PrescriptionDrugModelViewSet)
+router.register("Recipe", RecipeModelViewSet)
+router.register("SuppliedDrug", SuppliedDrugModelViewSet)
+router.register("Supplier", SupplierModelViewSet)
+router.register("Supply", SupplyModelViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-auth/', include('rest_framework.urls'))
+    path('api-auth/', include('rest_framework.urls')),
+    path("api/", include(router.urls)),
 ]

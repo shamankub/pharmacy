@@ -1,4 +1,4 @@
-# Интернет-магазин на основе Django
+# API сети аптек на основе Django REST Framework и React
 
 Собственный проект сети аптек, который разработан при прохождений обучения на факультете "[Python-разработка](https://gb.ru/geek_university/python)", портал GeekBrains, на курсе `Django REST Framework`.
 
